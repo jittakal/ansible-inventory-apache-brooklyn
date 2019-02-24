@@ -36,17 +36,21 @@ Instances are grouped by the following categories:
 
 Examples:
   Execute uname on all instances in application 'test'
+```
   $ ansible -i brooklyn.py application_test -m shell -a "/bin/uname -a"
-
+```
   Install nginx on all debian web servers tagged with 'www'
+```
   $ ansible -i brooklyn.py tag_www -m apt -a "name=nginx state=present"
-
+```
   Run site.yml playbook on web servers
+```
   $ ansible-playbook -i brooklyn.py site.yml -l tag_www
 
   $ export ANSIBLE_HOST_KEY_CHECKING=False
   $ dos2unix brooklyn.py
   $ ansible -i brooklyn.py all -m apt -a "name=nginx state=present" --become --become-user=root
+```
  
 Support:
   This script is tested on Python 2.7 and 3.5. It may work on other versions though.
